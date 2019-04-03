@@ -1,0 +1,27 @@
+[submodule "/Users/voglerr/Documents/Arduino/FlowMeter"]
+	path = /Users/voglerr/Documents/Arduino/FlowMeter
+	url = https://github.com/vogler/FlowMeter.git
+[submodule "/Users/voglerr/Documents/Arduino/libraries/HX711"]
+	path = /Users/voglerr/Documents/Arduino/libraries/HX711
+	url = https://github.com/bogde/HX711.git
+[submodule "/Users/voglerr/Documents/Arduino/libraries/WEMOS_Motor_Shield_Arduino_Library"]
+	path = /Users/voglerr/Documents/Arduino/libraries/WEMOS_Motor_Shield_Arduino_Library
+	url = https://github.com/wemos/WEMOS_Motor_Shield_Arduino_Library.git
+[submodule "/Users/voglerr/Documents/Arduino/wemos_motor_shield"]
+	path = /Users/voglerr/Documents/Arduino/wemos_motor_shield
+	url = https://github.com/pbugalski/wemos_motor_shield
+[submodule "FlowMeter"]
+	path = FlowMeter
+	url = https://github.com/vogler/FlowMeter.git
+[submodule "libraries/HX711"]
+	path = libraries/HX711
+	url = https://github.com/bogde/HX711.git
+[submodule "libraries/WEMOS_Motor_Shield_Arduino_Library"]
+	path = libraries/WEMOS_Motor_Shield_Arduino_Library
+	url = https://github.com/wemos/WEMOS_Motor_Shield_Arduino_Library.git
+[submodule "SmartLock"]
+	path = SmartLock
+	url = https://github.com/vogler/SmartLock.git
+[submodule "wemos_motor_shield"]
+	path = wemos_motor_shield
+	url = https://github.com/pbugalski/wemos_motor_shield
