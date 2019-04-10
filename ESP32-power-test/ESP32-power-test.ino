@@ -6,7 +6,19 @@
 // 30s deep sleep
 
 // current in mA using 2 AA (~3.15 V)
-// LOLIN D32: 39.3-39.4, 39.2, 42.3, 60-140, 0.3-0.8
+// 1. measured with my multimeter (have to switch cables from mA to uA for deep sleep)
+// 2. measured with Voltcraft VC275TRMS (has mA and uA on the same plug)
+// tracked phases via serial (just RX,TX,GND), more brownouts with 2, maybe b/c of higher internal resistance
+// LOLIN D32: ~38 work, 0.691 deep sleep
+// 1. 39.4 , 39.2 , 42.3, 60-140, 0.3-0.8
+// 2. 37.15, 36.84, ??, 691 uA, ? = 'Brownout detector was triggered' for BT or WiFi (68.7 constant current after)
+// DOIT ESP32 DEVKIT V1: ~47 work, 9.7 deep sleep
+// 2. 47.20, 48.85, brownout 80.0, 9.72 mA deep sleep
+// 1. 47.5 , 48.0 , 52.2, <140, 9.1
+// FireBeetle-ESP32 (bare ESP32 on white PCB): 38 work , 0.006 deep sleep
+// 1. 37.7, 37.9, brownout 70, 6.63 uA deep sleep via 3V3 from USB
+// 2. 37.79, ?, brownout 69.3, connected to USB, and got only some runs w/o brownouts:
+// 2. 37.58, 37.59, 41.55, <136, 5.5 uA deep sleep
 
 #include <MyConfig.h>
 
