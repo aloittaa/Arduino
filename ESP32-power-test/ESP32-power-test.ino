@@ -20,6 +20,9 @@
 // 2. 37.79, ?, brownout 69.3, connected to USB, and got only some runs w/o brownouts:
 // 2. 37.58, 37.59, 41.55, <136, 5.5 uA deep sleep
 
+// also see https://docs.google.com/spreadsheets/d/1Mu-bNwpnkiNUiM7f2dx8-gPnIAFMibsC2hMlWhIHbPQ/edit#gid=0
+// LOLIN D32 there says 125 uA deep sleep from battery
+
 #include <MyConfig.h>
 
 #include <WiFi.h>
