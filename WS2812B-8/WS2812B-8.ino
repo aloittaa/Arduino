@@ -1,3 +1,4 @@
+#include "oled.h"
 #include <MyConfig.h> // credentials, servers, ports
 #define MQTT_TOPIC "lights/WS2812B-8"
 #include "wifi_ota_mqtt.h"
@@ -43,10 +44,11 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
 void setup() {
   Serial.begin(38400);
   Serial.println("setup");
-  setup_wifi();
+  setup_OLED();
+  setup_WiFi();
   setup_OTA();
   mqtt.setCallback(mqtt_callback);
-  setup_mqtt();
+  setup_MQTT();
   
   delay(2000); // 2 second delay for recovery
   FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
@@ -64,6 +66,7 @@ void loop()
 {
   ArduinoOTA.handle();
   mqtt.loop();
+//  OLED.clearDisplay();
   switch (mode) {
     case '0':
       // FastLED.clear();
@@ -71,8 +74,10 @@ void loop()
       break;
     case '#':
       fill(color);
+//      OLED.println(color);
       break;
     default:
+      OLED.println("demo");
       // Call the current pattern function once, updating the 'leds' array
       gPatterns[gCurrentPatternNumber]();
       // send the 'leds' array out to the actual LED strip
@@ -83,6 +88,7 @@ void loop()
       EVERY_N_MILLISECONDS( 20 ) { gHue++; } // slowly cycle the "base color" through the rainbow
       EVERY_N_SECONDS( 10 ) { nextPattern(); } // change patterns periodically
   }
+//  OLED.display();
 }
 
 void fill(CRGB color) {
