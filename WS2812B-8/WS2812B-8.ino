@@ -77,7 +77,7 @@ void loop()
 //      OLED.println(color);
       break;
     default:
-      OLED.println("demo");
+      OLED.print("demo");
       // Call the current pattern function once, updating the 'leds' array
       gPatterns[gCurrentPatternNumber]();
       // send the 'leds' array out to the actual LED strip
