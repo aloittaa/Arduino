@@ -45,7 +45,7 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
     deserializeJson(doc, payload);
     co2 = doc["co2"];
     sprintf(co2_str, "%d", co2);
-    // Serial.printf("%d -> %d\n", co2, map(co2, 400, 3000, 0, 7));
+    // Serial.printf("co2: %d, led: %d, fadeLightBy: %d\n", co2, map(co2, CO2_min, CO2_max, 0, 7), map(co2, CO2_min, CO2_max, 255, 0));
   } else if (strcmp(topic, MQTT_TOPIC_BME280) == 0) {
     StaticJsonDocument<80> doc; // size 78
     deserializeJson(doc, payload);
@@ -117,7 +117,7 @@ void loop() {
       CRGB color = leds[led]; // backup its gradient color
       fill(CRGB::Black); // turn off all leds
       leds[led] = color; // turn back on a single led with the gradient color
-      leds[led].fadeLightBy(map(co2, CO2_min, CO2_max, 255, 0)); // dim lower levels (CO2_min is 100% dimmed w/o turning it off)
+      leds[led].fadeLightBy(map(co2, CO2_min, CO2_max, 249, 0)); // dim lower levels (255 should be 100% dimmed w/o turning it off, however it already turns off at 250)
       }
       break;
     case 'd': // demo
