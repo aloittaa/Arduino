@@ -12,16 +12,14 @@ U8G2_SSD1306_128X64_NONAME_F_SW_I2C OLED(U8G2_R2, /* clock=*/ D6, /* data=*/ D7,
 // #define OLED_stat(...) OLED.clearDisplay(); OLED.setCursor(0, 0); OLED.setTextSize(2); OLED.printf(__VA_ARGS__); OLED.display(); OLED.setTextSize(1)
 #define OLED_stat(...) OLED.clearBuffer(); OLED.drawStr(0, 10, __VA_ARGS__); OLED.sendBuffer()
 
+void clear_OLED() {
+  OLED.clearBuffer();
+  OLED.sendBuffer();
+}
+
 void setup_OLED() {
   OLED.begin();
-  
-  OLED.clearBuffer();
-  // fonts: https://github.com/olikraus/u8g2/wiki/fntlistall
-  OLED.setFont(u8g2_font_inb38_mf); // u8g2_font_logisoso32_tf
-  OLED.drawStr(0, 38, "2314");
-  OLED.setFont(u8g2_font_crox5hb_tr);
-  OLED.drawStr(0, 64, "-1  23.0 55%");
-  OLED.sendBuffer();
+  clear_OLED();
 }
 
 void drawSymbols() {
