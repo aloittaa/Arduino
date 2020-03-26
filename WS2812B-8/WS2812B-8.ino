@@ -8,6 +8,8 @@
 #include "wifi_ota_mqtt.h"
 #include <ArduinoJson.h>
 
+#define buzzer D5 // active 5V piezo speaker
+
 #include <FastLED.h>
 
 // WS2812B 8x1 panel https://www.aliexpress.com/item/32897581470.html
@@ -58,6 +60,7 @@ void mqtt_callback(char* topic, byte* payload, unsigned int length) {
       unsigned long ul = strtoul(c, 0, 16); // would give wrong values for (char*)payload+1 since the content is unsigned
       Serial.println(ul, HEX);
       color = ul;
+      tone(buzzer, (int)ul/671, 1000); // 0xFFFFFF/671 = 25000
     } else if (mode == 'c') {
       mqtt.subscribe(MQTT_TOPIC_CO2);
       mqtt.subscribe(MQTT_TOPIC_BME280);
@@ -80,6 +83,8 @@ void setup() {
   delay(2000); // 2 second delay for recovery
   FastLED.addLeds<LED_TYPE,DATA_PIN,COLOR_ORDER>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
   FastLED.setBrightness(BRIGHTNESS);
+
+  pinMode(buzzer, OUTPUT);
 }
 
 // List of patterns to cycle through.  Each is defined as a separate function below.
