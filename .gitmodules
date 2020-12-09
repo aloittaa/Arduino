@@ -13,3 +13,6 @@
 [submodule "wemos_motor_shield"]
 	path = wemos_motor_shield
 	url = https://github.com/pbugalski/wemos_motor_shield
+[submodule "esp-doorbell"]
+	path = esp-doorbell
+	url = https://github.com/vogler/esp-doorbell.git
