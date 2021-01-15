@@ -16,3 +16,6 @@
 [submodule "esp-doorbell"]
 	path = esp-doorbell
 	url = https://github.com/vogler/esp-doorbell.git
+[submodule "esp-shades-WiGa"]
+	path = esp-shades-WiGa
+	url = https://github.com/vogler/esp-shades-WiGa.git
